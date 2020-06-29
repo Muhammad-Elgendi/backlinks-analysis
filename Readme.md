@@ -1,0 +1,16 @@
+# TODO list
+- [x] is it a dofollow backlink ?
+- [x] is it within the body of the page ? (Link location)
+- [x] is it from a high-quality website ? we can use open pr for this!
+- [x] IP address
+- [x] Number of external links
+- [x] check if the page has many backlinks
+- [x] How "far away" is the linking domain from Google’s trusted seed sites (I used the rank of website in commoncrawl web graph to estimate this )
+- [x] check if IP address from spam-heavy countries
+- [ ] is it relevant to your topic in the target page ? (Linking page content relevance)
+- [ ] is it using relevant keywords within the anchor text ? (Anchor text relevance)
+- [ ] Linking page content quality
+- [ ] Linking domain quality and relevance
+- [ ] conduct the distribution of anchor-text types for each profile
+- [ ] Do a lot of your links come from the same IP address?
+- [ ] Are links from unique domains? 
