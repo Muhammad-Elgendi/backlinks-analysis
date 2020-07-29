@@ -1,4 +1,4 @@
-var data_str = '{"alive_backlinks_count": 2, "backlinks_opportunities_count": 18, "status_code": {"200": 2}, "follow_type": {"DoFollow": 2}, "dofollow_percent": 100.0, "postion": {"body": 2}, "anchor_type": {"text": 2}, "countries": [{"name": "United States", "code": "US", "count": 1}, {"name": "Singapore", "code": "SG", "count": 1}], "referring_domains_count": 2, "referring_ips_count": 2}';
+var data_str = '{"alive_backlinks_count": 2, "backlinks_opportunities_count": 18, "status_code": {"http_200": 2}, "follow_type": {"DoFollow": 2}, "dofollow_percent": 100.0, "postion": {"body": 2}, "anchor_type": {"text": 2}, "countries": [{"name": "Singapore", "code": "SG", "count": 1}, {"name": "United States", "code": "US", "count": 1}], "referring_domains_count": 2, "referring_ips_count": 2, "anchor_text": "\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t\\tquantamixsolutions.com/\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t A Guide to Top 10 AI tools and techniques in SEO for Digital Marketing | Quantamix Solutions"}';
 var data = JSON.parse(data_str)
 
 
@@ -133,7 +133,7 @@ function renderGraphs(){
     var codes_keys = ['x'];
     var codes_values = ['count'];
     for (x in data.status_code) {
-        codes_keys.push(x);
+        codes_keys.push(x.replace('http_',''));
         codes_values.push(data.status_code[x]);
     }
     var chart5 = c3.generate({
@@ -212,6 +212,38 @@ function renderGraphs(){
     });
 
 
+    // create a tag cloud chart
+    var chart7 = anychart.tagCloud();
+
+    // set the parsing mode and configure parsing settings
+    chart7.data(data.anchor_text, {
+    mode: "by-word",
+    maxItems: 30
+    });
+
+    // set text spacing
+    chart7.textSpacing(15);
+
+    // configure angles
+    chart7.angles([0]);
+
+    // set the chart title
+    chart7.title("Top Anchors Terms");
+    
+    // set the container id
+    chart7.container("top-anchors");
+    
+    // initiate drawing the chart
+    chart7.draw();
+
+    // ----------------------------------------------
+    // DISCLAIMER : you are limited in the ways you can use trial version 
+    // and you may not remove credits from the charts. 
+    // Buy your license from https://www.anychart.com/buy/
+    // ----------------------------------------------
+
+    // remove anychart credits
+    // $('div.anychart-credits').remove();
 }
 
 

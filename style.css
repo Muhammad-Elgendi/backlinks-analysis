@@ -1,0 +1,10 @@
+html, body{
+    width: 100%;
+    height: 100%;
+}
+
+#top-anchors {
+    width: 50%;
+    height: 50%;
+    margin: auto;
+}

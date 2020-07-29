@@ -14,6 +14,9 @@
     <!-- Load flag-icon -->
     <link href="flag-icon-css/css/flag-icon.min.css" rel="stylesheet">
 
+    <!-- Load our style sheet -->
+    <link href="style.css" rel="stylesheet">
+
     <title>Backlinks Analyser</title>
   </head>
   <body>
@@ -52,6 +55,9 @@
 
         <h2 class="text-center">Countries</h2>
         <div id="countries"></div>
+    
+        <h2 class="text-center">Top Anchors</h2>
+        <div class="text-center" id="top-anchors"></div>
    
     </div>
     
@@ -63,6 +69,9 @@
     <!-- Load d3.js and c3.js -->
     <script src="https://d3js.org/d3.v5.min.js"></script>
     <script src="c3-0.7.18/c3.min.js"></script>
+    <!-- load Anychart modules -->
+    <script src="https://cdn.anychart.com/releases/8.7.1/js/anychart-core.min.js"></script>
+    <script src="https://cdn.anychart.com/releases/8.7.1/js/anychart-tag-cloud.min.js"></script>
     <!-- Load our main js file -->
     <script src="main.js" ></script>
 </body>
