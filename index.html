@@ -13,7 +13,13 @@
 
     <!-- Load flag-icon -->
     <link href="flag-icon-css/css/flag-icon.min.css" rel="stylesheet">
+    
+    <!-- load tabulator -->
+    <link href="tabulator-master/dist/css/bootstrap/tabulator_bootstrap4.min.css" rel="stylesheet">
 
+    <!-- load font awesome -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    
     <!-- Load our style sheet -->
     <link href="style.css" rel="stylesheet">
 
@@ -21,44 +27,133 @@
   </head>
   <body>
     <div class="container">
-        <div class="row text-center">
-            <div class="col-lg-4">
-                <h1>Backlinks</h1>
+        <div class="row text-center pt-5">
+            <div class="col-lg-3">
+                <h3>Backlinks</h1>
                 <h2  id="backlinks"></h2>
                 <h5 id="follow-percent"></h5>
             </div>
        
-            <div class="col-lg-4">
-                <h1>Referring Domains</h1>
+            <div class="col-lg-3">
+                <h3>Referring Domains</h1>
                 <h2 id="ref-domains"></h2>
             </div>
 
-            <div class="col-lg-4">                   
-                <h1>Referring IPs</h1>
+            <div class="col-lg-3">                   
+                <h3>Referring IPs</h1>
                 <h2  id="ref-ips"></h2>
+            </div>
+
+            <div class="col-lg-3">                   
+                <h3>Found Opportunities</h1>
+                <h2  id="opportunities"></h2>
             </div>
      
         </div>
 
-        <h2 class="text-center">DoFollow vs NoFollow</h2>
-        <div id="link-type"></div>
-        <di id="link-type2"></div>
-        
-        <h2 class="text-center">Anchor Types</h2>
-        <div id="anchor-type"></div>
+
+        <div class="row text-center mt-5">
+
+            <div class="col-lg-6">
+                <div class="card" >
+                    <div class="card-body">
+                      <h5 class="card-title">DoFollow vs NoFollow</h5>
+                      <h6 class="card-subtitle mb-2 text-muted">Do-follow link does matter more than no-follow</h6>
+                      <div id="link-type"></div>
+                      <!-- <di id="link-type2"></div> -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6">
+                <div class="card" >
+                    <div class="card-body">
+                      <h5 class="card-title">Anchor Types</h5>
+                      <h6 class="card-subtitle mb-2 text-muted">Anchor type of backlink could be just text or image</h6>
+                      <div id="anchor-type"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row text-center mt-5">
+
+            <div class="col-lg-6">
+                <div class="card" >
+                    <div class="card-body">
+                      <h5 class="card-title">Links postions</h5>
+                      <h6 class="card-subtitle mb-2 text-muted">Backlink position in the page it can be 'body', 'footer' or 'header'</h6>
+                      <div id="link-postion"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6">
+                <div class="card" >
+                    <div class="card-body">
+                      <h5 class="card-title">Countries</h5>
+                      <h6 class="card-subtitle mb-2 text-muted">Countries of backlinks sites</h6>           
+                      <div id="countries"></div>             
+                    </div>
+                </div>
+            </div>
             
-        <h2 class="text-center">Links postions</h2>
-        <div id="link-postion"></div>
+        </div>
 
-        <h2 class="text-center">HTTP status codes</h2>
-        <div id="status-code"></div>
 
-        <h2 class="text-center">Countries</h2>
-        <div id="countries"></div>
+        <div class="row text-center mt-5">
+
+
+            <div class="col-lg-6">
+                <div class="card" >
+                    <div class="card-body">
+                      <h5 class="card-title">HTTP status codes</h5>
+                      <h6 class="card-subtitle mb-2 text-muted">Http status code of the page that have the backlink</h6>                      
+                      <div id="status-code"></div>                  
+                    </div>
+                </div>
+            </div>       
+
+            <div class="col-lg-6">
+                <div class="card" >
+                    <div class="card-body">
+                      <h5 class="card-title">Top Anchors</h5>
+                      <h6 class="card-subtitle mb-2 text-muted">Anchors Terms of backlinks</h6>
+                      <div id="top-anchors"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Backlinks Table -->
+        <div class="row mt-5">
+            <h3 class="pr-3">Alive Backlinks</h3>
+
+            <button type="button" class="btn btn-default" id="download-csv" aria-label="Right Align">
+                CSV
+                <span class="fa fa-download" aria-hidden="true"></span>
+               
+            </button>
+
+            <div id="backlinks-table"></div>
+        </div>
+
+        <!-- opportunities table -->
+        <div class="row mt-5">
+            <h3 class="pr-3">Backlinks opportunities</h3>
+
+            <button type="button" class="btn btn-default" id="download-csv-2" aria-label="Right Align">
+                CSV
+                <span class="fa fa-download" aria-hidden="true"></span>
+               
+            </button>
+
+            <div id="opportunities-table"></div>
+        </div>
     
-        <h2 class="text-center">Top Anchors</h2>
-        <div class="text-center" id="top-anchors"></div>
-   
+
+
     </div>
     
     <!-- Optional JavaScript -->
@@ -72,6 +167,8 @@
     <!-- load Anychart modules -->
     <script src="https://cdn.anychart.com/releases/8.7.1/js/anychart-core.min.js"></script>
     <script src="https://cdn.anychart.com/releases/8.7.1/js/anychart-tag-cloud.min.js"></script>
+    <!-- load tabulator js -->
+    <script type="text/javascript" src="tabulator-master/dist/js/tabulator.min.js"></script>
     <!-- Load our main js file -->
     <script src="main.js" ></script>
 </body>
